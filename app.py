@@ -3,6 +3,7 @@ from flask import Flask, app, request
 from flask.templating import render_template
 from models import *
 from models import Userlog
+import hashlib
 g_id = 0
 # app = Flask(__name__)
 
@@ -39,7 +40,7 @@ def registersuccess():
         email = request.form.get('email')
         password = request.form.get('password')
         print(name)
-        entry = Userlog( id = g_id ,name = name, email = email,password = password)        #how to insert id?????
+        entry = Userlog( id = g_id ,name = name, email = email,password = password)  
         db.session.add(entry)
         db.session.commit()
 
